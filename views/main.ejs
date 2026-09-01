@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Notes</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Darren's Book Notes</h1>
+        <h2 class="subtitle">Track every book you've read.</h2>
+        <div class="toolbar">
+            <div class="sort-buttons">
+                <a href="/?sort=rating">⭐ Sort By Rating</a> |
+                <a href="/?sort=recent">📅 Sort By Recent</a>
+            </div>
+            <div class="add-button">
+                <a class="btn add-book" href="/add">+ Add New Book</a>
+            </div>
+        </div>
+    </header>
+    <% books.forEach(book => { %>
+        <div class="book-card">
+            <div class="book-content">
+                <% if (book.isbn) { %>
+                    <img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg" alt="<%= book.title %>"/>
+                <% } %>
+                <div class="book-info">
+                    <p class="book-title"><%= book.title %></p>
+                    <p class="author">Author: <%= book.author %></p>
+                    <p>Date Read: <%= book.read_date %></p>
+                    <p>Rating: <%= "⭐".repeat(book.rating) %><%= book.rating %> / 5</p>
+                    <p class="review">Review: <%= book.review %></p>
+                </div>
+            </div>
+            <div class="book-actions">
+                <a class="btn edit-btn" href="/edit/<%= book.id %>">Edit</a>
+                <a class="btn delete-btn" id="<%= book.id %>">Delete</a>
+            </div>
+        </div>
+        <hr>
+    <% }); %>
+</body>
+</html>

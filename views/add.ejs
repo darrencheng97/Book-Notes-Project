@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/1074714bd5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/add.js"></script>
+    <title>Add Book</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add New Book</h1>
+        <p class="subtitle">
+            Add a new book to your personal reading collection.
+        </p>
+        <p style="color:red">* Required Field</p>
+        <form id="myForm">
+            <div class="form-group">
+                <label><span class="asterik">*</span> Book Title :</label>
+                <textarea name="title" placeholder="e.g. Atomic Habits"></textarea>
+            </div>
+            <div class="form-group">
+                <label><span class="asterik">*</span> Author :</label>
+                <input type="text" name="author" placeholder="e.g. James White">
+            </div>
+            <div class="form-group">
+                <div class="tooltip">
+                    <label><span class="asterik">*</span> ISBN :<i class="fa-solid fa-circle-info"></i></label>
+                    <span class="tooltiptext"><img src="/images/isbn-location.png">
+                        Typical location of an ISBN on the back of a book.
+                    </span>
+                </div>
+                <input type="text" name="isbn" placeholder="e.g. 9781111111111">
+            </div>
+            <div class="form-group">
+                <label><span class="asterik">*</span> Date Read :</label>
+                <input type="date" name="readDate">
+            </div>
+            <div class="form-group">
+                <label><span class="asterik">*</span> Rating :</label>
+                <select name="rating" required>
+                    <option value="">Please select a rating</option>
+                    <% for(let i=1; i<=5; i++) { %>
+                    <option value="<%= i %>">
+                        <%="⭐".repeat(i)%> (<%= i %>)
+                    </option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Review (Optional) :</label>
+                <textarea name="review" placeholder="e.g. Write your review"></textarea>
+            </div>
+            <div class="form-buttons">
+                <a href="/" class="btn btn-cancel">Cancel</a>
+                <input type="submit" value="Save Book">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
