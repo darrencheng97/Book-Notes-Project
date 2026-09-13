@@ -1,8 +1,5 @@
 # Book-Notes-Project
-The Book Note Capstone Project
-
-# Book-Notes-Project
-The Book Note Capstone Project
+The Book Note Capstone Project. 
 
 A full-stack web application for managing and reviewing books that I have read.
 
@@ -151,6 +148,7 @@ book-note-project/
 ├── .gitignore
 └── README.md
 ```
+
 ### 🎯 Learning Objectives
 
 Through this project, I gained practical experience in:
